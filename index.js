@@ -14,7 +14,7 @@ const cartRoutes = require("./routes/cart")
 
 //Environment setup
 
-const port = 4000;
+const port = process.env.PORT || 4000;
 
 //Server setup
 const app = express();
