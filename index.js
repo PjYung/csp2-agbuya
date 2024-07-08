@@ -25,10 +25,13 @@ app.use(express.urlencoded({extended:true}));
 app.use(cors());
 
 //Database Connection
-mongoose.connect("mongodb+srv://pjagbuyadev:admin123@cluster0.3u4tn0o.mongodb.net/ecommerce_system?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
+mongoose.connect("mongodb+srv://pjagbuyadev:admin123@cluster0.3u4tn0o.mongodb.net/ecommerce_system?retryWrites=true&w=majority")
+  .then(() => {
+    console.log('MongoDB connected successfully');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+  });
 
 mongoose.connection.once('open', () => console.log("Now connected to MongoDB Atlas"))
 
